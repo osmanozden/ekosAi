@@ -17,7 +17,7 @@ public class User {
     @Indexed(unique = true)
     private String email;
     private String password;
-    private String name;
+    private String firstName;
     private String lastname;
     private String phoneNumber;
     private ZonedDateTime crated;
