@@ -6,7 +6,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.ZonedDateTime;
+
+import java.time.LocalDateTime;
+
 
 @Data
 @Document
@@ -20,7 +22,7 @@ public class User {
     private String firstName;
     private String lastname;
     private String phoneNumber;
-    private ZonedDateTime crated;
+    private LocalDateTime crated;
 
 
 }

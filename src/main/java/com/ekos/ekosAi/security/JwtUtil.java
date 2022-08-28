@@ -1,16 +1,13 @@
 package com.ekos.ekosAi.security;
 
-import com.ekos.ekosAi.exception.BadRequestException;
-import com.ekos.ekosAi.model.Team;
-import com.ekos.ekosAi.security.model.UserDetailsImpl;
-import com.ekos.ekosAi.util.MessageUtil;
+/*import com.ekos.ekosAi.exception.BadRequestException;*/
+import com.ekos.ekosAi.security.model.*;
+
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
+
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
+
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Date;
@@ -37,12 +34,11 @@ public class JwtUtil {
   @Value("${robin.app.jwtExpirationMs}")
   private int jwtExpirationMs;
 
-  public String generateJwtToken(Authentication authentication, Team team) {
+  public String generateJwtToken(Authentication authentication) {
     UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
     return Jwts.builder()
         .setSubject((userPrincipal.getEmail()))
-        .claim("team", team)
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.HOURS.toMillis(12)))
         .signWith(SignatureAlgorithm.HS512, SecurityConstants.SECRET)
@@ -73,7 +69,7 @@ public class JwtUtil {
         .getSubject();
   }
 
-  public boolean validateJwtToken(String authToken) {
+/*  public boolean validateJwtToken(String authToken) {
     try {
       Jwts.parser()
           .setSigningKey(jwtSecret.getBytes(StandardCharsets.UTF_8))
@@ -95,5 +91,5 @@ public class JwtUtil {
       logger.error("JWT claims string is empty: {}", e.getMessage());
       throw new BadRequestException(MessageUtil.INVALID_JWT_TOKEN.getKey());
     }
-  }
+  }*/
 }
