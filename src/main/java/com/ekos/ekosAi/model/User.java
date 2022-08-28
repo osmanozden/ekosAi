@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 
 @Data
-@Document
+@Document(collation = "user")
 @AllArgsConstructor
 public class User {
     @Id
@@ -20,9 +20,8 @@ public class User {
     private String email;
     private String password;
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String phoneNumber;
     private LocalDateTime crated;
-
 
 }

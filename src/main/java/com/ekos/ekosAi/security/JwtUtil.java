@@ -1,19 +1,19 @@
 package com.ekos.ekosAi.security;
 
 /*import com.ekos.ekosAi.exception.BadRequestException;*/
+import com.ekos.ekosAi.exception.BadRequestException;
 import com.ekos.ekosAi.security.model.*;
 
-import io.jsonwebtoken.Claims;
+import com.ekos.ekosAi.util.MessageUtil;
+import io.jsonwebtoken.*;
 
-import io.jsonwebtoken.Jwts;
-
-import io.jsonwebtoken.SignatureAlgorithm;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -69,7 +69,7 @@ public class JwtUtil {
         .getSubject();
   }
 
-/*  public boolean validateJwtToken(String authToken) {
+  public boolean validateJwtToken(String authToken) {
     try {
       Jwts.parser()
           .setSigningKey(jwtSecret.getBytes(StandardCharsets.UTF_8))
@@ -91,5 +91,5 @@ public class JwtUtil {
       logger.error("JWT claims string is empty: {}", e.getMessage());
       throw new BadRequestException(MessageUtil.INVALID_JWT_TOKEN.getKey());
     }
-  }*/
+  }
 }
