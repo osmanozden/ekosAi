@@ -21,5 +21,5 @@ public class UserDto {
     private String lastname;
     private String phoneNumber;
     private LocalDateTime crated;
-    private Role role;
+
 }

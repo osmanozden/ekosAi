@@ -1,13 +1,12 @@
 package com.ekos.ekosAi.service;
 
-import com.codefirst.robin.dto.UserDto;
-import com.codefirst.robin.exception.BadRequestException;
-import com.codefirst.robin.mapper.UserMapper;
-import com.codefirst.robin.model.Company;
-import com.codefirst.robin.model.User;
-import com.codefirst.robin.repository.UserRepository;
-import com.codefirst.robin.security.SecurityConstants;
-import com.codefirst.robin.util.MessageUtil;
+import com.ekos.ekosAi.dto.UserDto;
+import com.ekos.ekosAi.exception.BadRequestException;
+import com.ekos.ekosAi.mapper.UserMapper;
+import com.ekos.ekosAi.model.User;
+import com.ekos.ekosAi.repository.UserRepository;
+import com.ekos.ekosAi.security.SecurityConstants;
+import com.ekos.ekosAi.util.MessageUtil;
 import com.ekos.ekosAi.exception.BadRequestException;
 import com.ekos.ekosAi.model.User;
 import com.ekos.ekosAi.util.MessageUtil;
